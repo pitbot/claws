@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Station Bomberman</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>🚀 SPACE STATION BOMBERMAN 🚀</h1>
+            <div class="info">
+                <div class="player-info">
+                    <span id="player1-lives">Lives: 3</span>
+                    <span id="player1-bombs">Bombs: 1</span>
+                </div>
+                <div class="warnings" id="warnings"></div>
+            </div>
+        </div>
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="controls">
+            <h3>Controls</h3>
+            <p><strong>Player 1:</strong> Arrow Keys to move, Space to place bomb</p>
+            <p><strong>R:</strong> Restart game</p>
+            <div class="instructions">
+                <h4>Game Rules:</h4>
+                <ul>
+                    <li>Place bombs to destroy walls and eliminate enemies</li>
+                    <li>Avoid getting caught in explosions</li>
+                    <li><strong>DANGER:</strong> Window breaches create vacuum! Stay away or run!</li>
+                    <li>Distance 0-3: Instant death - pulled into space</li>
+                    <li>Distance 4-10: Progressively weaker pull - keep moving away!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
