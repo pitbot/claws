@@ -26,7 +26,8 @@ Edit **`.env`** with:
 
 Edit **`repos.json`** so it lists every repo in your org with a short
 description and tags — this is how BugBot decides which repos are relevant to a
-bug report.
+bug report. You can optionally set a `branch` per repo (e.g. `"branch": "dev"`).
+If omitted, BugBot uses the repo's default branch (main/master) automatically.
 
 Then run:
 

@@ -1,5 +1,5 @@
 import { repos } from '../config.js';
-import { searchCode, searchIssues, recentCommits } from '../services/github.js';
+import { searchCode, searchIssues, recentCommits, resolveBranch } from '../services/github.js';
 
 /**
  * Score each repo in repos.json against a bug card.
@@ -50,13 +50,14 @@ export async function gatherContext(card, matchedRepos) {
     context.issueHits = issues;
   }
 
-  // Fetch recent commits for the top matched repos
+  // Resolve branches and fetch recent commits for the top matched repos
   const topRepos = matchedRepos.slice(0, 3);
   context.commits = (
     await Promise.all(
       topRepos.map(async (r) => {
-        const commits = await recentCommits(r.repo).catch(() => []);
-        return { repo: r.repo, commits };
+        const branch = await resolveBranch(r.repo, r.branch).catch(() => null);
+        const commits = await recentCommits(r.repo, branch).catch(() => []);
+        return { repo: r.repo, branch, commits };
       }),
     )
   ).filter((r) => r.commits.length > 0);
@@ -86,7 +87,8 @@ export function buildReport(card, matchedRepos, context) {
     lines.push('  Could not determine affected repos from the bug description.');
   }
   for (const r of matchedRepos) {
-    lines.push(`  • ${r.repo}  (score ${r.score.toFixed(1)}) — ${r.description}`);
+    const branchLabel = r.branch ? ` [${r.branch}]` : '';
+    lines.push(`  • ${r.repo}${branchLabel}  (score ${r.score.toFixed(1)}) — ${r.description}`);
   }
   lines.push('');
 
@@ -114,7 +116,8 @@ export function buildReport(card, matchedRepos, context) {
   if (context.commits.length) {
     lines.push('── Recent Commits in Matched Repos ──');
     for (const group of context.commits) {
-      lines.push(`  ${group.repo}:`);
+      const branchLabel = group.branch ? ` (${group.branch})` : '';
+      lines.push(`  ${group.repo}${branchLabel}:`);
       for (const c of group.commits) {
         lines.push(`    ${c.sha}  ${c.message}`);
       }

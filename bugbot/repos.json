@@ -1,6 +1,7 @@
 [
   {
     "repo": "my-org/frontend-app",
+    "branch": "dev",
     "description": "React SPA — handles all user-facing UI, routing, and client-side state.",
     "tags": ["ui", "frontend", "react", "css", "browser"]
   },
@@ -11,6 +12,7 @@
   },
   {
     "repo": "my-org/worker-jobs",
+    "branch": "main",
     "description": "Background job runner — email sending, PDF generation, scheduled tasks.",
     "tags": ["jobs", "queue", "email", "pdf", "cron"]
   }
