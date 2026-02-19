@@ -1,0 +1,17 @@
+[
+  {
+    "repo": "my-org/frontend-app",
+    "description": "React SPA — handles all user-facing UI, routing, and client-side state.",
+    "tags": ["ui", "frontend", "react", "css", "browser"]
+  },
+  {
+    "repo": "my-org/api-server",
+    "description": "Express REST API — authentication, business logic, database access.",
+    "tags": ["api", "backend", "auth", "database", "rest"]
+  },
+  {
+    "repo": "my-org/worker-jobs",
+    "description": "Background job runner — email sending, PDF generation, scheduled tasks.",
+    "tags": ["jobs", "queue", "email", "pdf", "cron"]
+  }
+]

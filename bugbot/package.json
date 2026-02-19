@@ -1,0 +1,21 @@
+{
+  "name": "bugbot",
+  "version": "1.0.0",
+  "description": "Reads Trello bug cards, analyses them against GitHub repos, and produces developer-focused reports.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "bugbot": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dry-run": "node src/index.js --dry-run"
+  },
+  "keywords": ["trello", "github", "bug-triage"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "octokit": "^4.1.2"
+  }
+}
