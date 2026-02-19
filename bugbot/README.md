@@ -1,10 +1,10 @@
 # BugBot
 
-Reads bug cards from a Trello board, cross-references them against your GitHub
-organisation's repos, and produces developer-focused reports with suggested fix
-approaches. Optionally posts the report back as a comment on the Trello card.
+A Claude Code slash command (`/bugbot`) that triages Trello bug cards against
+your GitHub organisation's repos. Claude does the analysis — no external LLM
+needed.
 
-## Quick Start
+## Setup
 
 ```bash
 cd bugbot
@@ -22,19 +22,41 @@ Edit **`.env`** with:
 | `TRELLO_LIST_NAME` | The column that holds bug cards (default `Bugs`) |
 | `GITHUB_TOKEN` | A **read-only** GitHub fine-grained PAT |
 | `GITHUB_ORG` | Your GitHub organisation name |
-| `POST_COMMENT` | Set to `true` to post reports back to Trello |
 
 Edit **`repos.json`** so it lists every repo in your org with a short
-description and tags — this is how BugBot decides which repos are relevant to a
-bug report. You can optionally set a `branch` per repo (e.g. `"branch": "dev"`).
-If omitted, BugBot uses the repo's default branch (main/master) automatically.
+description and tags. You can optionally set a `branch` per repo (e.g.
+`"branch": "dev"`). If omitted, BugBot uses the repo's default branch
+(main/master) automatically.
 
-Then run:
+## Usage
+
+Inside Claude Code, type:
+
+```
+/bugbot
+```
+
+Claude will:
+1. Pull your bug list from Trello
+2. Let you pick which bug(s) to triage
+3. Search your GitHub org's code, issues, and recent commits
+4. Produce a developer-focused diagnosis with a specific fix plan
+5. Optionally post the report back as a Trello comment
+
+## CLI (for debugging / manual use)
 
 ```bash
-npm start            # process all bug cards
-npm run dry-run      # same thing but skip posting comments
+node src/cli.js list                              # List bug cards
+node src/cli.js card <cardId>                     # Full card details
+node src/cli.js repos                             # Show repo map
+node src/cli.js search-code <query>               # Search code in GitHub org
+node src/cli.js search-issues <query>             # Search issues/PRs
+node src/cli.js commits <owner/repo> [branch]     # Recent commits
+node src/cli.js read-file <owner/repo> <path> [branch]  # Read a file
+node src/cli.js comment <cardId> <text>           # Post Trello comment
 ```
+
+All commands output JSON to stdout.
 
 ## Getting Trello Credentials (Read-Only)
 
@@ -43,29 +65,13 @@ npm run dry-run      # same thing but skip posting comments
    ```
    https://trello.com/1/authorize?expiration=never&scope=read&response_type=token&key=YOUR_KEY
    ```
-3. If you want BugBot to post comments back (`POST_COMMENT=true`), generate a
-   token with `scope=read,write` instead.
+3. If you want BugBot to post comments back, generate a token with
+   `scope=read,write` instead.
 
 ## Getting a GitHub Token (Read-Only)
 
 1. Go to https://github.com/settings/tokens → **Fine-grained tokens**.
 2. Scope it to your org, **read-only Contents** permission.
-
-## How It Works
-
-1. Fetches all cards from the configured Trello list.
-2. For each card, scores every repo in `repos.json` by matching keywords and
-   tags from the bug description.
-3. Searches GitHub code and issues for relevant keywords.
-4. Pulls recent commits from the most likely repos.
-5. Produces a structured report:
-   - Original bug description
-   - Likely affected repos (ranked)
-   - Related code files
-   - Related issues / PRs
-   - Recent commits
-   - Suggested fix approach
-6. Optionally posts the report as a comment on the Trello card.
 
 ## Project Structure
 
@@ -74,13 +80,13 @@ bugbot/
 ├── .env.example          # template for credentials
 ├── repos.json            # your org's repo map (edit this)
 ├── package.json
-├── README.md
 └── src/
-    ├── index.js           # CLI entry point
-    ├── config.js          # loads env + repos.json
-    ├── services/
-    │   ├── trello.js      # Trello API (read cards, post comments)
-    │   └── github.js      # GitHub API (search code/issues, read files)
-    └── lib/
-        └── analyser.js    # repo matching, context gathering, report building
+    ├── cli.js             # CLI with subcommands (used by the skill)
+    ├── config.js           # loads env + repos.json
+    └── services/
+        ├── trello.js       # Trello API (read cards, post comments)
+        └── github.js       # GitHub API (search code/issues, read files)
+
+.claude/commands/
+└── bugbot.md              # Claude Code slash command definition
 ```

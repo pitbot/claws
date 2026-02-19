@@ -14,6 +14,10 @@ function required(name) {
   return val;
 }
 
+function optional(name, fallback = '') {
+  return process.env[name] || fallback;
+}
+
 export const config = {
   trello: {
     apiKey: required('TRELLO_API_KEY'),
@@ -22,13 +26,12 @@ export const config = {
       .split(',')
       .map((b) => b.trim())
       .filter(Boolean),
-    listName: process.env.TRELLO_LIST_NAME || 'Bugs',
+    listName: optional('TRELLO_LIST_NAME', 'Bugs'),
   },
   github: {
     token: required('GITHUB_TOKEN'),
     org: required('GITHUB_ORG'),
   },
-  postComment: process.env.POST_COMMENT === 'true',
 };
 
 const reposPath = resolve(__dirname, '..', 'repos.json');

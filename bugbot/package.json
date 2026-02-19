@@ -1,17 +1,16 @@
 {
   "name": "bugbot",
-  "version": "1.0.0",
-  "description": "Reads Trello bug cards, analyses them against GitHub repos, and produces developer-focused reports.",
+  "version": "2.0.0",
+  "description": "Claude Code skill — triages Trello bug cards against GitHub repos.",
   "type": "module",
-  "main": "src/index.js",
   "bin": {
-    "bugbot": "src/index.js"
+    "bugbot": "src/cli.js"
   },
   "scripts": {
-    "start": "node src/index.js",
-    "dry-run": "node src/index.js --dry-run"
+    "list": "node src/cli.js list",
+    "help": "node src/cli.js help"
   },
-  "keywords": ["trello", "github", "bug-triage"],
+  "keywords": ["trello", "github", "bug-triage", "claude-code"],
   "author": "",
   "license": "ISC",
   "dependencies": {
