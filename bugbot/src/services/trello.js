@@ -44,7 +44,30 @@ export async function getCardsFromList(boardId) {
 }
 
 /**
- * Post a comment on a Trello card (only used when POST_COMMENT=true).
+ * Return all lists (columns) for a board.
+ */
+export async function getLists(boardId) {
+  return trelloGet(`/boards/${boardId}/lists`, { fields: 'name' });
+}
+
+/**
+ * Move a card to a different list by list ID.
+ */
+export async function moveCard(cardId, listId) {
+  const url = new URL(`${BASE}/cards/${cardId}`);
+  url.searchParams.set('key', config.trello.apiKey);
+  url.searchParams.set('token', config.trello.token);
+  url.searchParams.set('idList', listId);
+
+  const res = await fetch(url, { method: 'PUT' });
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`Trello move failed ${res.status}: ${body}`);
+  }
+}
+
+/**
+ * Post a comment on a Trello card.
  */
 export async function addComment(cardId, text) {
   const url = new URL(`${BASE}/cards/${cardId}/actions/comments`);

@@ -14,7 +14,9 @@ node bugbot/src/cli.js search-code <query>               — Search code across 
 node bugbot/src/cli.js search-issues <query>             — Search issues/PRs across the GitHub org
 node bugbot/src/cli.js commits <owner/repo> [branch]     — Recent commits for a repo
 node bugbot/src/cli.js read-file <owner/repo> <path> [branch] — Read a file from a repo
-node bugbot/src/cli.js comment <cardId> <text>           — Post a comment on a Trello card
+node bugbot/src/cli.js lists                              — List all columns (lists) on configured boards
+node bugbot/src/cli.js move-card <cardId> <listId>        — Move a card to a different column
+node bugbot/src/cli.js comment <cardId> <text>            — Post a comment on a Trello card
 ```
 
 ## Workflow
@@ -60,9 +62,16 @@ Write a structured developer-focused report with these sections:
 
 **Related Issues** — Link any existing GitHub issues or PRs that are relevant.
 
-### Step 6 — Ask about commenting
+### Step 6 — Comment and move
 
-Ask the user if they want to post the report back to the Trello card as a comment. If yes, run `node bugbot/src/cli.js comment <cardId> <text>` with the report text.
+Ask the user two things:
+
+1. **Comment?** — Do they want to post the report back to the Trello card as a comment? If yes, run `node bugbot/src/cli.js comment <cardId> <text>` with the report text.
+
+2. **Move?** — Do they want to move the card to a different column (e.g. "Triaged", "In Progress")? If yes:
+   - Run `node bugbot/src/cli.js lists` to get the available columns.
+   - Show the user the column names and let them pick.
+   - Run `node bugbot/src/cli.js move-card <cardId> <listId>` to move it.
 
 Then ask if they want to triage another bug from the list, or stop.
 

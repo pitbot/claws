@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { config, repos } from './config.js';
-import { getBoards, getCardsFromList, addComment } from './services/trello.js';
+import { getBoards, getCardsFromList, getLists, moveCard, addComment } from './services/trello.js';
 import { searchCode, searchIssues, recentCommits, resolveBranch, getFileContent } from './services/github.js';
 
 const [,, command, ...args] = process.argv;
@@ -107,6 +107,32 @@ const commands = {
     console.log(content);
   },
 
+  /** List all columns (lists) on configured boards */
+  async lists() {
+    const boards = await getBoards();
+    if (!boards.length) die(`No boards found matching: ${config.trello.boards.join(', ')}`);
+
+    const result = [];
+    for (const board of boards) {
+      const lists = await getLists(board.id);
+      result.push({
+        board: board.name,
+        boardId: board.id,
+        lists: lists.map((l) => ({ id: l.id, name: l.name })),
+      });
+    }
+    out(result);
+  },
+
+  /** Move a card to a different list/column */
+  async 'move-card'() {
+    const cardId = args[0];
+    const listId = args[1];
+    if (!cardId || !listId) die('Usage: cli.js move-card <cardId> <listId>');
+    await moveCard(cardId, listId);
+    out({ ok: true, cardId, movedTo: listId });
+  },
+
   /** Post a comment on a Trello card */
   async comment() {
     const cardId = args[0];
@@ -127,6 +153,8 @@ const commands = {
         'search-issues <query>             — Search issues/PRs in the GitHub org',
         'commits <owner/repo> [branch]     — Recent commits for a repo',
         'read-file <owner/repo> <path> [branch] — Read a file from a repo',
+        'lists                              — List all columns on configured boards',
+        'move-card <cardId> <listId>       — Move a card to a different column',
         'comment <cardId> <text>           — Post a comment on a Trello card',
       ],
     });
