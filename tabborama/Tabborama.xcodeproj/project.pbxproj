@@ -1,0 +1,317 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAA00001 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00001; };
+		AAA00002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00002; };
+		AAA00003 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00003; };
+		AAA00004 /* WindowTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00004; };
+		AAA00005 /* TagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00005; };
+		AAA00006 /* CGWindowInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00006; };
+		AAA00007 /* WindowEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00007; };
+		AAA00008 /* WindowSelectionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00008; };
+		AAA00009 /* WindowSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00009; };
+		AAA00010 /* TagOverlayWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00010; };
+		AAA00011 /* TagOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00011; };
+		AAA00012 /* TagOverlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00012; };
+		AAA00013 /* WindowTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00013; };
+		AAA00014 /* CoordinateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00014; };
+		AAA00015 /* AccessibilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00015; };
+		AAA00016 /* ColourPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB00016; };
+		AAA00017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB00017; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BBB00001 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		BBB00002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BBB00003 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+		BBB00004 /* WindowTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTag.swift; sourceTree = "<group>"; };
+		BBB00005 /* TagStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStore.swift; sourceTree = "<group>"; };
+		BBB00006 /* CGWindowInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGWindowInfo.swift; sourceTree = "<group>"; };
+		BBB00007 /* WindowEnumerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowEnumerator.swift; sourceTree = "<group>"; };
+		BBB00008 /* WindowSelectionOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowSelectionOverlay.swift; sourceTree = "<group>"; };
+		BBB00009 /* WindowSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowSelectionController.swift; sourceTree = "<group>"; };
+		BBB00010 /* TagOverlayWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOverlayWindow.swift; sourceTree = "<group>"; };
+		BBB00011 /* TagOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOverlayView.swift; sourceTree = "<group>"; };
+		BBB00012 /* TagOverlayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagOverlayManager.swift; sourceTree = "<group>"; };
+		BBB00013 /* WindowTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTracker.swift; sourceTree = "<group>"; };
+		BBB00014 /* CoordinateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateConverter.swift; sourceTree = "<group>"; };
+		BBB00015 /* AccessibilityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityHelper.swift; sourceTree = "<group>"; };
+		BBB00016 /* ColourPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPickerController.swift; sourceTree = "<group>"; };
+		BBB00017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BBB00018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBB00019 /* Tabborama.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tabborama.entitlements; sourceTree = "<group>"; };
+		CCC00001 /* Tabborama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tabborama.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DDD00001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EEE00001 = {
+			isa = PBXGroup;
+			children = (
+				EEE00002 /* Tabborama */,
+				EEE00003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EEE00002 /* Tabborama */ = {
+			isa = PBXGroup;
+			children = (
+				BBB00001 /* main.swift */,
+				BBB00002 /* AppDelegate.swift */,
+				BBB00003 /* StatusBarController.swift */,
+				BBB00004 /* WindowTag.swift */,
+				BBB00005 /* TagStore.swift */,
+				BBB00006 /* CGWindowInfo.swift */,
+				BBB00007 /* WindowEnumerator.swift */,
+				BBB00008 /* WindowSelectionOverlay.swift */,
+				BBB00009 /* WindowSelectionController.swift */,
+				BBB00010 /* TagOverlayWindow.swift */,
+				BBB00011 /* TagOverlayView.swift */,
+				BBB00012 /* TagOverlayManager.swift */,
+				BBB00013 /* WindowTracker.swift */,
+				BBB00014 /* CoordinateConverter.swift */,
+				BBB00015 /* AccessibilityHelper.swift */,
+				BBB00016 /* ColourPickerController.swift */,
+				BBB00017 /* Assets.xcassets */,
+				BBB00018 /* Info.plist */,
+				BBB00019 /* Tabborama.entitlements */,
+			);
+			path = Tabborama;
+			sourceTree = "<group>";
+		};
+		EEE00003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CCC00001 /* Tabborama.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FFF00001 /* Tabborama */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = GGG00003 /* Build configuration list for PBXNativeTarget "Tabborama" */;
+			buildPhases = (
+				FFF00002 /* Sources */,
+				FFF00003 /* Resources */,
+				DDD00001 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tabborama;
+			productName = Tabborama;
+			productReference = CCC00001 /* Tabborama.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		HHH00001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					FFF00001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = GGG00001 /* Build configuration list for PBXProject "Tabborama" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EEE00001;
+			productRefGroup = EEE00003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FFF00001 /* Tabborama */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FFF00003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA00017 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FFF00002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA00001 /* main.swift in Sources */,
+				AAA00002 /* AppDelegate.swift in Sources */,
+				AAA00003 /* StatusBarController.swift in Sources */,
+				AAA00004 /* WindowTag.swift in Sources */,
+				AAA00005 /* TagStore.swift in Sources */,
+				AAA00006 /* CGWindowInfo.swift in Sources */,
+				AAA00007 /* WindowEnumerator.swift in Sources */,
+				AAA00008 /* WindowSelectionOverlay.swift in Sources */,
+				AAA00009 /* WindowSelectionController.swift in Sources */,
+				AAA00010 /* TagOverlayWindow.swift in Sources */,
+				AAA00011 /* TagOverlayView.swift in Sources */,
+				AAA00012 /* TagOverlayManager.swift in Sources */,
+				AAA00013 /* WindowTracker.swift in Sources */,
+				AAA00014 /* CoordinateConverter.swift in Sources */,
+				AAA00015 /* AccessibilityHelper.swift in Sources */,
+				AAA00016 /* ColourPickerController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		GGG00004 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		GGG00005 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		GGG00006 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tabborama/Tabborama.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Tabborama/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tabborama.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		GGG00007 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tabborama/Tabborama.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Tabborama/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tabborama.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		GGG00001 /* Build configuration list for PBXProject "Tabborama" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				GGG00004 /* Debug */,
+				GGG00005 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		GGG00003 /* Build configuration list for PBXNativeTarget "Tabborama" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				GGG00006 /* Debug */,
+				GGG00007 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = HHH00001 /* Project object */;
+}
